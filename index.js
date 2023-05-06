@@ -1,3 +1,4 @@
+//create value
 let img1 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/bulbasaur.avif';
 let img2 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmander.avif';
 let img3 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmeleon.avif';
@@ -13,8 +14,6 @@ const resetBtn = document.getElementById('resetBtn');
 const pokemonShuffleArray = shuffleArray(pokemonArr)
 const pokemonDiv = document.getElementById('pokemon');
 
-
-
 //reset button created
 resetBtn.addEventListener('click', () => {
     location.reload();
@@ -22,13 +21,20 @@ resetBtn.addEventListener('click', () => {
 
 //array for each to create a img tag
 pokemonShuffleArray.forEach((url) => {
+    const pokemonImgDiv = document.createElement('div');
     const img = document.createElement('img');
     img.src = url;
     img.classList.add('border-solid', 'border-2', 'hover:opacity-50')
-    pokemonDiv.appendChild(img);
+    pokemonDiv.appendChild(pokemonImgDiv);
+    pokemonImgDiv.appendChild(img)
+
+
+    // tao the img trong the DIV sau do xoa the img di
 
     //pokemon deleted
-    img.addEventListener('click', (ev) => {
+    pokemonImgDiv.addEventListener('click', (ev) => {
+        pokemonImgDiv.classList.add('opacity-50')
+
         if (firstClick === null) {
             firstClick = ev.target.src;
         } else if (secondClick === null) {
@@ -37,17 +43,21 @@ pokemonShuffleArray.forEach((url) => {
         if (firstClick !== secondClick && secondClick !== null) {
             firstClick = null;
             secondClick = null;
-        } else if (firstClick === secondClick) {
-
-            for (let i = 0; i < pokemonShuffleArray.length; i++) {
-                if (pokemonShuffleArray[i] === secondClick) {
-                    pokemonShuffleArray[i] = '';
+            pokemonDiv.querySelectorAll('div').forEach((parameter) => {
+                if (parameter.className == 'opacity-50') {
+                    parameter.classList.remove('opacity-50');
 
                 }
-            }
-            ev.target.src = '';
-            firstClick = null;
-            secondClick = null;
+            });
+        } else if (firstClick === secondClick) {
+            pokemonDiv.querySelectorAll('div').forEach((parameter) => {
+                if (parameter.className == 'opacity-50') {
+                    parameter.remove(img)
+                    parameter.classList.remove('opacity-50');
+                    firstClick = null;
+                    secondClick = null;
+                }
+            });
 
 
         }
