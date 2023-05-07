@@ -52,11 +52,12 @@ pokemonShuffleArray.forEach((url) => {
         } else if (firstClick === secondClick) {
             pokemonDiv.querySelectorAll('div').forEach((parameter) => {
                 if (parameter.className == 'opacity-50') {
-                    parameter.remove(img)
-                    parameter.classList.remove('opacity-50');
+                    parameter.innerHTML = "";
+                    parameter.classList.add('border-solid', 'border-2', 'h-[95px]', 'w-[95px]');
                     firstClick = null;
                     secondClick = null;
                 }
+
             });
 
 
