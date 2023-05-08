@@ -543,6 +543,58 @@ video {
   height: 95px;
 }
 
+.h-\[ca\] {
+  height: ca;
+}
+
+.h-\[calc\] {
+  height: calc;
+}
+
+.h-\[calc\(100vh-36px\)\] {
+  height: calc(100vh - 36px);
+}
+
+.h-\[calc\(100v-36px\)\] {
+  height: calc(100v - 36px);
+}
+
+.h-\[calc\(100v\%\/36px\)\] {
+  height: calc(100v%/36px);
+}
+
+.h-\[calc\(100v\%\/5\)\] {
+  height: calc(100v%/5);
+}
+
+.h-\[calc\(100v\%\/6\)\] {
+  height: calc(100v%/6);
+}
+
+.h-\[calc\(100\%\/6\)\] {
+  height: calc(100% / 6);
+}
+
+.h-1\/6 {
+  height: 16.666667%;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[calc\(\)\] {
+  height: calc();
+}
+
+.h-\[calc\(384px\/\)\] {
+  height: calc(384px / );
+}
+
+.h-\[calc\(384px\/6\)\] {
+  height: calc(384px / 6);
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -551,12 +603,24 @@ video {
   width: 95px;
 }
 
+.w-\[calc\(100\%\/6\)\] {
+  width: calc(100% / 6);
+}
+
+.w-1\/6 {
+  width: 16.666667%;
+}
+
+.w-\[calc\(384px\/6\)\] {
+  width: calc(384px / 6);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .justify-center {

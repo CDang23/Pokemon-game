@@ -1,13 +1,23 @@
 //create value
-let img1 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/bulbasaur.avif';
-let img2 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmander.avif';
-let img3 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmeleon.avif';
-let img4 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/squirtle.avif';
-let img5 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/butterfree.avif';
-let img6 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/clefairy.avif';
-let img7 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/vulpix.avif';
-let img8 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pikachu.avif';
-let pokemonArr = [img1, img2, img3, img4, img5, img6, img7, img8, img1, img2, img3, img4, img5, img6, img7, img8];
+let img1 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/bulbasaur.avif';//#001
+let img2 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/wartortle.avif';//008
+let img3 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/beedrill.avif';//015
+let img4 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/beedrill.avif';//022
+let img5 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/ivysaur.avif';//002
+let img6 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/blastoise.avif';//009
+let img7 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pidgey.avif';//016
+let img8 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pikachu.avif';//023
+let img9 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/venusaur.avif';//003
+let img10 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/caterpie.avif';//010
+let img11 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pidgeotto.avif';//017
+let img12 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/arbok.avif';//024
+let img13 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmander.avif';//004
+let img14 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/metapod.avif';//011
+let img15 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pidgeot.avif';//018
+let img16 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pikachu.avif';//025
+let img17 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/charmander.avif';//004
+let img18 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/metapod.avif';//011
+let pokemonArr = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18];
 let firstClick = null;
 let secondClick = null;
 let firstClass = '';
@@ -53,7 +63,6 @@ pokemonShuffleArray.forEach((url) => {
             pokemonDiv.querySelectorAll('div').forEach((parameter) => {
                 if (parameter.className == 'opacity-50') {
                     parameter.classList.remove('opacity-50');
-
                 }
             });
         } else if (firstClick === secondClick) {
@@ -65,7 +74,7 @@ pokemonShuffleArray.forEach((url) => {
                 pokemonDiv.querySelectorAll('div').forEach((parameter) => {
                     if (parameter.className == 'opacity-50') {
                         parameter.innerHTML = "";
-                        parameter.classList.add('border-solid', 'border-2', 'h-[95px]', 'w-[95px]');
+                        parameter.classList.add('border-solid', 'border-2', 'h-[calc(384px/6)]', 'w-[calc(384px/6)]');
                         firstClick = null;
                         secondClick = null;
                     }
