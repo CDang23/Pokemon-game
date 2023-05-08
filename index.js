@@ -10,9 +10,13 @@ let img8 = 'https://img.pokemondb.net/sprites/home/normal/2x/avif/pikachu.avif';
 let pokemonArr = [img1, img2, img3, img4, img5, img6, img7, img8, img1, img2, img3, img4, img5, img6, img7, img8];
 let firstClick = null;
 let secondClick = null;
+let firstClass = '';
+let secondClass = '';
+let numDiv = 0;
 const resetBtn = document.getElementById('resetBtn');
 const pokemonShuffleArray = shuffleArray(pokemonArr)
 const pokemonDiv = document.getElementById('pokemon');
+
 
 //reset button created
 resetBtn.addEventListener('click', () => {
@@ -23,13 +27,12 @@ resetBtn.addEventListener('click', () => {
 pokemonShuffleArray.forEach((url) => {
     const pokemonImgDiv = document.createElement('div');
     const img = document.createElement('img');
+    numDiv = numDiv + 1;// tao bien dem cho cac the img dua vao
+    img.classList.add(numDiv, 'border-solid', 'border-2', 'hover:opacity-50');
     img.src = url;
-    img.classList.add('border-solid', 'border-2', 'hover:opacity-50')
     pokemonDiv.appendChild(pokemonImgDiv);
-    pokemonImgDiv.appendChild(img)
+    pokemonImgDiv.appendChild(img);
 
-
-    // tao the img trong the DIV sau do xoa the img di
 
     //pokemon deleted
     pokemonImgDiv.addEventListener('click', (ev) => {
@@ -37,8 +40,12 @@ pokemonShuffleArray.forEach((url) => {
 
         if (firstClick === null) {
             firstClick = ev.target.src;
+            firstClass = ev.target.className;
+
         } else if (secondClick === null) {
             secondClick = ev.target.src;
+            secondClass = ev.target.className;
+
         }
         if (firstClick !== secondClick && secondClick !== null) {
             firstClick = null;
@@ -50,15 +57,21 @@ pokemonShuffleArray.forEach((url) => {
                 }
             });
         } else if (firstClick === secondClick) {
-            pokemonDiv.querySelectorAll('div').forEach((parameter) => {
-                if (parameter.className == 'opacity-50') {
-                    parameter.innerHTML = "";
-                    parameter.classList.add('border-solid', 'border-2', 'h-[95px]', 'w-[95px]');
-                    firstClick = null;
-                    secondClick = null;
-                }
+            if (firstClass == secondClass) {
+                firstClick = null;
+                secondClick = null;
+                pokemonImgDiv.classList.remove('opacity-50');
+            } else {
+                pokemonDiv.querySelectorAll('div').forEach((parameter) => {
+                    if (parameter.className == 'opacity-50') {
+                        parameter.innerHTML = "";
+                        parameter.classList.add('border-solid', 'border-2', 'h-[95px]', 'w-[95px]');
+                        firstClick = null;
+                        secondClick = null;
+                    }
 
-            });
+                });
+            }
 
 
         }
