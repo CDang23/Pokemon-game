@@ -74,7 +74,7 @@ pokemonShuffleArray.forEach((url) => {
                 pokemonDiv.querySelectorAll('div').forEach((parameter) => {
                     if (parameter.className == 'opacity-50') {
                         parameter.innerHTML = "";
-                        parameter.classList.add('border-solid', 'border-2', 'sm:h-[calc(384px/6)]', 'sm:w-[calc(384px/6)]', 'h-[calc(288px/6)]', 'sm:w-[calc(288px/6)]');
+                        parameter.classList.add('border-solid', 'border-2', 'sm:h-[calc(384px/6)]', 'sm:w-[calc(384px/6)]', 'h-[calc(288px/6)]', 'w-[calc(288px/6)]');
                         firstClick = null;
                         secondClick = null;
                     }
